@@ -15,7 +15,7 @@ public class JavaWebPage {
 
     public void handling() throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-        server.createContext("/f.html", new MyHandler());
+        server.createContext("/blablabla", new MyHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
     }
@@ -36,7 +36,7 @@ public class JavaWebPage {
     class HandleThread implements Runnable {
 
         private HttpExchange t;
-        private String query = "hello";
+        private String query = "<h1> hello </h1><br/><label>"+ System.currentTimeMillis() + "</label>";
 
         public HandleThread(HttpExchange h) throws Exception {
             this.t = h;
